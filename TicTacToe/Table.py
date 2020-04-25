@@ -1,4 +1,5 @@
 import sys
+import errors
 
 
 class Table:
@@ -19,15 +20,18 @@ class Table:
     def player_move(self, player):
         row = int(raw_input(player.get_name() + " its your turn please insert row: "))
         col = int(raw_input(player.get_name() + " its your turn please insert col: "))
-        if row > 3 or col > 3 or col < 1 or row > 1:
-            pass
-        if self.table[row][col][0] == '_':
-            self.table[row][col][0] = player.get_sign()
-            self.counter = self.counter - 1
-        self.print_table()
-        if self.winner(player):
-            print "%s you win", player.get_name()
-            sys.exit(player.get_name() + " is the winner")
+        try:
+            if row > 3 or col > 3 or col < 1 or row > 1:
+                raise errors.WrongMove(row, col)
+            if self.table[row][col][0] == '_':
+                self.table[row][col][0] = player.get_sign()
+                self.counter = self.counter - 1
+            self.print_table()
+            if self.winner(player):
+                print "%s you win", player.get_name()
+                sys.exit(player.get_name() + " is the winner")
+        except errors.WrongMove as e:
+            print e.get_value()
 
     # mean that we can assign the player sign
 

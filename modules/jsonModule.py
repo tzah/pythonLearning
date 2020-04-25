@@ -1,5 +1,10 @@
 import json
 
+
+def printing():
+    print 'i am here'
+
+
 # a Python object (dict):
 x = {
     "name": "John",

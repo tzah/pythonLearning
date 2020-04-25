@@ -1,5 +1,6 @@
 from TicTacToe import *
-import modules.jsonModule as jsModule
+# import TicTacToe
+# import modules.jsonModule as jsModule
 
 player1 = Player(raw_input("Player 1 please insert your name: "), 'X')
 player2 = Player(raw_input("Player 2 please insert your name: "), 'O')

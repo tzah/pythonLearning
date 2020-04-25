@@ -13,11 +13,15 @@ class Table:
                 print(self.table[i][j][0]),
         print 'finish printing'
 
-    def player_move(self, player, row, col):
+    def player_move(self, player):
+        row = int(raw_input(player.get_name()+" its your turn please insert row: "))
+        col = int(raw_input(player.get_name()+" its your turn please insert col: "))
         if self.table[row][col][0] == '_':
             self.table[row][col][0] = player.get_sign()
             self.counter = self.counter - 1
+            return True
         self.print_table()
+        return False
 
     # mean that we can assign the player sign
 

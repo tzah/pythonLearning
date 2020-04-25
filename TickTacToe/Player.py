@@ -7,3 +7,5 @@ class Player:
     def get_sign(self):
         return self.sign
 
+    def get_name(self):
+        return self.name
